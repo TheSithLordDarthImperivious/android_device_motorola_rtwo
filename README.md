@@ -1,6 +1,22 @@
-# Motorola Edge 40 Pro/Motorola Edge+ 2023/Moto X40 (Codename: "rtwo") TWRP Port
+# Motorola Edge 40 Pro/Motorola Edge+ 2023/Moto X40 (Codename: "rtwo") TWRP Port (Unofficial)
 
-This is a TWRP device tree for the Motorola Edge 40 Pro/Motorola Edge+ 2023/Moto X40.
+This is an unofficial TWRP device tree for the Motorola Edge 40 Pro/Motorola Edge+ 2023/Moto X40.
+
+# Warning
+
+```
+/*
+* Your warranty is now void.
+*
+* I am not responsible for bricked devices, total data loss,
+* thermonuclear war, or you getting fired because your phone got stuck in a bootloop. Please
+* do some research if you have any concerns about features included in this unofficial TWRP port
+* before flashing it! YOU are choosing to make these modifications, and if
+* you point the finger at me for messing up your device, I will laugh at you.
+* Note that I am also sacrificing my device just to make this TWRP port,
+* so you may be putting your device at risk too.
+*/
+```
 
 # Note
 

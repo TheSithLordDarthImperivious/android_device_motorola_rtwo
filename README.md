@@ -15,11 +15,13 @@ Attempting to boot using fastboot boot will not work; it must be flashed to reco
 # Working Features
 - It can boot
 - Touchscreen
-- File Manager
+- File Manager (can browse /system)
+- Can read (and possibly write) internal storage (you have to mount from terminal currently)
 - CPU Temperature
 - Brightness
 
 # Non-working features
+- USB (and in turn adb, mtp, this is top priority)
 - Battery percentage (LineageOS recovery has the same issue)
 - fastbootd (please do not try to boot into fastbootd, it may throw your device into a state where it can only boot into Android when "fastboot boot boot.img" is used, and it can only be broken when stock/LineageOS recovery.img is flashed).
 

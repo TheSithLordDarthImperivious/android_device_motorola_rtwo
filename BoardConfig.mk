@@ -4,8 +4,6 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
-# Modified by the Sith Open Source Commitee
-
 DEVICE_PATH := device/motorola/rtwo
 
 # Bootloader

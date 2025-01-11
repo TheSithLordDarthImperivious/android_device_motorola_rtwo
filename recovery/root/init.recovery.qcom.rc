@@ -31,6 +31,7 @@ on init
     # to cut charging battery path
     write /sys/class/power_supply/battery/siop_level 0
     setprop prepdecrypt.setpatch true
+    setprop sys.usb.configfs 1
 
 on fs
     wait /dev/block/platform/soc/${ro.boot.bootdevice}
@@ -41,6 +42,7 @@ on fs
     mount vfat /dev/block/bootdevice/by-name/apnhlos /vendor/firmware_mnt
 
     export ANDROID_ROOT /system_root
+    # Mount bootdevice
 
 on boot
     start health-hal-2-1
@@ -55,3 +57,7 @@ on property:crypto.ready=0
 
 on property:twrp.user.0.decrypt=0
     umount /vendor/firmware_mnt
+
+on property:ro.boot.usbcontroller=*
+    setprop sys.usb.controller ${ro.boot.usbcontroller}
+    write /sys/class/udc/${ro.boot.usbcontroller}/device/../mode peripheral

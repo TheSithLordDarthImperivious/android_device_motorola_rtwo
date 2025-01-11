@@ -9,10 +9,6 @@ $(INSTALLED_BOOTIMAGE_TARGET): $(MKBOOTIMG) $(INTERNAL_BOOTIMAGE_FILES) $(BOOTIM
 	@echo "Made boot image: $@"
 
 $(INSTALLED_RECOVERYIMAGE_TARGET): $(MKBOOTIMG) $(recovery_ramdisk) $(recovery_kernel) $(RECOVERYIMAGE_EXTRA_DEPS)
-	@echo "----- Making recovery image ------"
-	$(hide) $(MKBOOTIMG) $(INTERNAL_RECOVERYIMAGE_ARGS) $(INTERNAL_MKBOOTIMG_VERSION_ARGS) $(BOARD_MKBOOTIMG_ARGS) --output $@
-	@echo "----- Lying about SEAndroid state to Samsung bootloader ------"
-	$(hide) echo -n "SEANDROIDENFORCE" >> $@
-	@echo "Made recovery image: $@"
-	$(hide) tar -C $(PRODUCT_OUT) -c recovery.img > $(FLASH_IMAGE_TARGET)
-	@echo "Made flashable $(FLASH_IMAGE_TARGET): $@"
+	@echo "----- Making bootable recovery image for rtwo ------"
+	$(MKBOOTIMG) --ramdisk $(PRODUCT_OUT)/ramdisk-recovery.img --base $(BOARD_KERNEL_BASE) --pagesize $(BOARD_KERNEL_PAGESIZE) --dtb $(TARGET_PREBUILT_DTB) --os_version 14 --os_patch_level 2024-12-01 --header_version $(BOARD_BOOT_HEADER_VERSION) --output $@
+	@echo "DONE! You can now flash the image using fastboot flash."
